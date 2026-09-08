@@ -1,0 +1,43 @@
+#!/usr/bin/env expect
+# ============================================================
+#  SFTP-Helfer fuer das Deployment der miko-Website
+#
+#  Liest die Zugangsdaten aus einer .env-Datei (Host, Port, User,
+#  Password, Folder) und fuehrt die uebergebenen sftp-Kommandos aus.
+#  Das Passwort wird nur an den sftp-Prompt gesendet und nie
+#  ausgegeben (log_user 0 waehrend der Eingabe).
+#
+#  Aufruf (aus dem Projektwurzelverzeichnis):
+#    expect deploy/sftp.exp .env 'put index.html /htdocs/index.html'
+#    expect deploy/sftp.exp .env 'ls -l /htdocs'
+#
+#  Hinweis: Pfade mit Leerzeichen in den sftp-Kommandos in
+#  doppelte Anfuehrungszeichen setzen, z. B.
+#    'ls -l "/htdocs/Logos Referenzen"'
+# ============================================================
+set timeout 120
+set envfile [lindex $argv 0]
+set cmds [lrange $argv 1 end]
+
+set fh [open $envfile r]
+while {[gets $fh line] >= 0} {
+    if {[regexp {^([A-Za-z_]+)=(.*)$} $line -> k v]} { set cfg($k) $v }
+}
+close $fh
+
+spawn sftp -o StrictHostKeyChecking=accept-new -o NumberOfPasswordPrompts=1 -P $cfg(Port) $cfg(User)@$cfg(Host)
+expect {
+    -re {[Pp]assword:} { log_user 0; send "$cfg(Password)\r"; log_user 1 }
+    timeout { puts "\nFEHLER: keine Passwortabfrage"; exit 1 }
+}
+expect {
+    "sftp>" {}
+    -re {[Pp]ermission denied} { puts "\nFEHLER: Login abgelehnt"; exit 1 }
+    timeout { puts "\nFEHLER: kein sftp-Prompt"; exit 1 }
+}
+foreach c $cmds {
+    send "$c\r"
+    expect "sftp>"
+}
+send "bye\r"
+expect eof
