@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 80" width="400" height="80">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e8edf2"/>
+      <stop offset="100%" stop-color="#d6dde6"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="80" rx="6" fill="url(#bg)"/>
+  <text x="200" y="54" font-family="'Arial Black', 'Helvetica Neue', Arial, sans-serif" font-size="42" font-weight="900" text-anchor="middle" letter-spacing="2" fill="#1a3a6b" font-style="italic">STABILUS</text>
+</svg>

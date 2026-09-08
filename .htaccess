@@ -1,0 +1,49 @@
+# ============================================
+#  miko® GmbH – Zugriffsschutz (Apache)
+#  Gilt fuer das Document Root (/htdocs).
+#
+#  ACHTUNG: Der Live-Server laeuft aktuell unter CADDY, nicht Apache.
+#  Caddy liest .htaccess NICHT – diese Datei ist dort wirkungslos und
+#  dient nur als Absicherung fuer den Fall eines Umzugs auf Apache.
+#  Der Schutz von Punkt-Dateien (.env -> 403) kommt derzeit aus der
+#  Server-Konfiguration von Caddy, nicht von hier.
+# ============================================
+
+# ── 1) Punkt-Dateien sperren (.env, .DS_Store, .git*, ...) ──
+# FilesMatch prueft nur den Dateinamen, nicht den Pfad:
+# /.well-known/acme-challenge/<token> (Let's Encrypt) bleibt erreichbar.
+<FilesMatch "^\.">
+  Require all denied
+  <IfModule !mod_authz_core.c>
+    Deny from all
+  </IfModule>
+</FilesMatch>
+
+# ── 2) Konfiguration mit Zugangsdaten sperren ──
+# Wirkt nur auf HTTP-Zugriffe; das require in contact.php laeuft ueber
+# das Dateisystem und ist davon nicht betroffen.
+<FilesMatch "^config\.smtp.*\.php$">
+  Require all denied
+  <IfModule !mod_authz_core.c>
+    Deny from all
+  </IfModule>
+</FilesMatch>
+
+# ── 3) Interne Datei-Endungen nicht ausliefern ──
+<FilesMatch "\.(md|sh|py|log|sql|ini|yml|yaml|bak|old|orig|swp|dist|example)$">
+  Require all denied
+  <IfModule !mod_authz_core.c>
+    Deny from all
+  </IfModule>
+</FilesMatch>
+
+# ── 4) Verzeichnis-Listing abschalten ──
+Options -Indexes
+
+# ── 5) Serverkennung reduzieren ──
+<IfModule mod_headers.c>
+  Header unset X-Powered-By
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>

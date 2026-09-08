@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 60" width="220" height="60">
+  <!-- Green dots -->
+  <rect x="8" y="14" width="8" height="8" rx="1" fill="#7AB648"/>
+  <rect x="18" y="14" width="8" height="8" rx="1" fill="#7AB648"/>
+  <rect x="8" y="24" width="8" height="8" rx="1" fill="#7AB648"/>
+  <rect x="18" y="24" width="8" height="8" rx="1" fill="#0068B4"/>
+  <!-- atlas text -->
+  <text x="34" y="34" font-family="'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="700" fill="#0068B4">atlas</text>
+  <text x="34" y="48" font-family="'Helvetica Neue', Arial, sans-serif" font-size="9" font-weight="400" letter-spacing="0.5" fill="#666">the shoe company</text>
+</svg>

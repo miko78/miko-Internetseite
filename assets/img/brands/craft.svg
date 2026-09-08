@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 50" width="180" height="50">
+  <text x="10" y="34" font-family="'Helvetica Neue', Arial, sans-serif" font-size="28" font-weight="800" letter-spacing="4" fill="#1a1a1a">CRAFT</text>
+  <!-- Dots pattern -->
+  <circle cx="140" cy="20" r="3" fill="#1a1a1a"/>
+  <circle cx="150" cy="20" r="3" fill="#1a1a1a"/>
+  <circle cx="140" cy="30" r="3" fill="#1a1a1a"/>
+  <circle cx="150" cy="30" r="3" fill="#1a1a1a"/>
+</svg>

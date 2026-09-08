@@ -1,0 +1,28 @@
+# ── Zugangsdaten / Secrets (NIEMALS committen) ──
+.env
+config.smtp.php
+
+# ── Laufzeitdaten des Kontaktformulars (Tokens, Rate-Limit-Zaehler) ──
+data/*
+!data/.gitkeep
+!data/.htaccess
+
+# ── macOS / Editor ──
+.DS_Store
+**/.DS_Store
+*.swp
+Thumbs.db
+.idea/
+.vscode/
+
+# ── Arbeitsmaterial, gehoert nicht zur Website ──
+_archiv/
+Logos Referenzen/
+_capstest.html
+
+# ── Grosse Lieferanten-PDFs (ca. 328 MB) ──
+# Bewusst ausgeschlossen: sie machen jeden Clone unbrauchbar gross und
+# aendern sich nur einmal jaehrlich. Sie liegen auf dem Server unter
+# /htdocs/downloads/ und werden separat per SFTP gepflegt.
+# Zum Mitversionieren diese Zeile entfernen (ggf. mit Git LFS).
+downloads/

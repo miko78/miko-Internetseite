@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 70" width="200" height="70">
+  <rect width="200" height="70" rx="4" fill="#1a1a1a"/>
+  <!-- Penguin icon -->
+  <ellipse cx="160" cy="24" rx="14" ry="16" fill="#E3003A"/>
+  <ellipse cx="160" cy="22" rx="10" ry="12" fill="#fff"/>
+  <ellipse cx="160" cy="26" rx="7" ry="9" fill="#E3003A"/>
+  <circle cx="157" cy="18" r="1.5" fill="#1a1a1a"/>
+  <polygon points="160,14 162,18 158,18" fill="#FFA000"/>
+  <!-- Text -->
+  <text x="16" y="38" font-family="'Helvetica Neue', Arial, sans-serif" font-size="26" font-weight="800" letter-spacing="3" fill="#FFFFFF">MASCOT</text>
+  <text x="16" y="54" font-family="'Helvetica Neue', Arial, sans-serif" font-size="9" font-weight="400" letter-spacing="2" fill="#999">tested to work</text>
+</svg>

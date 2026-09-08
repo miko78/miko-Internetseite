@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Individuelle Sitzkissen mit Logo | miko® GmbH</title>
+  <meta name="description" content="Sitzkissen individuell bedrucken lassen – Standard ab 216 Stück oder Event-Kissen in kleinen Mengen. Siebdruck, Sublimation, Sonderformen. Kostenloser Entwurf von miko® GmbH.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --red: #E3003A;
+      --red-dark: #c70032;
+      --red-bg: #fef2f4;
+      --dark: #1a1a1a;
+      --text: #333;
+      --text-light: #666;
+      --gray-50: #f9fafb;
+      --gray-100: #f3f4f6;
+      --gray-200: #e5e7eb;
+      --white: #fff;
+      --radius: 12px;
+      --shadow: 0 4px 24px rgba(0,0,0,0.06);
+      --shadow-lg: 0 12px 40px rgba(0,0,0,0.1);
+      --transition: all 0.3s ease;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text);
+      line-height: 1.7;
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+    /* ── TOPBAR ── */
+    .lp-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 32px;
+      background: var(--white);
+      border-bottom: 1px solid var(--gray-200);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .lp-topbar img { height: 36px; }
+    .lp-topbar-links { display: flex; gap: 24px; align-items: center; }
+    .lp-topbar-links a {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--text);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    .lp-topbar-links a:hover { color: var(--red); }
+
+    /* ── BUTTONS ── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 32px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: var(--transition);
+      cursor: pointer;
+      border: none;
+    }
+    .btn-red, a.btn-red, a.btn-red:visited { background: var(--red); color: #ffffff !important; }
+    .btn-red:hover, a.btn-red:hover { background: var(--red-dark); color: #ffffff !important; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(227,0,58,0.3); }
+    .btn-outline { background: transparent; color: var(--red); border: 2px solid var(--red); }
+    .btn-outline:hover { background: var(--red); color: var(--white); }
+    .btn-white { background: var(--white); color: var(--red); }
+    .btn-white:hover { background: var(--gray-100); transform: translateY(-2px); }
+    .btn-sm { padding: 10px 24px; font-size: 0.85rem; }
+
+    /* ── HERO ── */
+    .lp-hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 80px 0 60px;
+      background: linear-gradient(135deg, var(--white) 0%, var(--red-bg) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .lp-hero::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(227,0,58,0.06) 0%, transparent 70%);
+    }
+    .lp-hero .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    .lp-hero-text h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      line-height: 1.15;
+      color: var(--dark);
+      margin-bottom: 20px;
+    }
+    .lp-hero-text h1 span { color: var(--red); }
+    .lp-hero-text p {
+      font-size: 1.15rem;
+      color: var(--text-light);
+      margin-bottom: 32px;
+      max-width: 480px;
+    }
+    .lp-hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
+    .lp-hero-badges {
+      display: flex;
+      gap: 24px;
+      margin-top: 32px;
+      flex-wrap: wrap;
+    }
+    .lp-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text);
+    }
+    .lp-badge svg { width: 18px; height: 18px; color: #22c55e; flex-shrink: 0; }
+    .lp-hero-visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .lp-hero-visual img {
+      width: 100%;
+      max-width: 460px;
+      border-radius: 16px;
+      box-shadow: var(--shadow-lg);
+    }
+
+    /* ── SECTION ── */
+    .lp-section { padding: 80px 0; }
+    .lp-section-gray { background: var(--gray-50); }
+    .lp-section-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .lp-tag {
+      display: inline-block;
+      padding: 6px 16px;
+      background: var(--red-bg);
+      color: var(--red);
+      font-weight: 600;
+      font-size: 0.8rem;
+      border-radius: 50px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .lp-section-header h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 12px;
+    }
+    .lp-section-header p {
+      font-size: 1.05rem;
+      color: var(--text-light);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* ── FEATURE CARDS ── */
+    .lp-features {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .lp-feature {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      padding: 32px 24px;
+      text-align: center;
+      transition: var(--transition);
+    }
+    .lp-feature:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--red);
+    }
+    .lp-feature-icon {
+      width: 56px;
+      height: 56px;
+      margin: 0 auto 16px;
+      background: var(--red-bg);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--red);
+    }
+    .lp-feature-icon svg { width: 28px; height: 28px; }
+    .lp-feature h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 8px; color: var(--dark); }
+    .lp-feature p { font-size: 0.88rem; color: var(--text-light); }
+
+    /* ── ZWEI PRODUKTLINIEN ── */
+    .lp-products {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .lp-product-card {
+      background: var(--white);
+      border: 2px solid var(--gray-200);
+      border-radius: 16px;
+      padding: 40px 32px;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .lp-product-card:hover {
+      border-color: var(--red);
+      box-shadow: var(--shadow-lg);
+    }
+    .lp-product-card.featured {
+      border-color: var(--red);
+    }
+    .lp-product-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      background: var(--red);
+      color: var(--white);
+      font-size: 0.72rem;
+      font-weight: 700;
+      border-radius: 50px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 16px;
+    }
+    .lp-product-card h3 {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+    .lp-product-card .subtitle {
+      font-size: 0.95rem;
+      color: var(--text-light);
+      margin-bottom: 24px;
+    }
+    .lp-product-specs { list-style: none; margin-bottom: 28px; }
+    .lp-product-specs li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 7px 0;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+    .lp-product-specs svg { width: 18px; height: 18px; color: #22c55e; flex-shrink: 0; }
+
+    /* ── VEREDELUNG GRID ── */
+    .lp-options-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .lp-option {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 24px;
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      transition: var(--transition);
+    }
+    .lp-option:hover { border-color: var(--red); }
+    .lp-option-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--red-bg);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--red);
+    }
+    .lp-option-icon svg { width: 20px; height: 20px; }
+    .lp-option h4 { font-size: 0.95rem; font-weight: 600; margin-bottom: 4px; color: var(--dark); }
+    .lp-option p { font-size: 0.83rem; color: var(--text-light); }
+
+    /* ── EINSATZBEREICHE ── */
+    .lp-usecases {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .lp-usecase {
+      text-align: center;
+      padding: 36px 24px;
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      transition: var(--transition);
+    }
+    .lp-usecase:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--red);
+    }
+    .lp-usecase-icon {
+      width: 60px;
+      height: 60px;
+      margin: 0 auto 16px;
+      background: var(--red-bg);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--red);
+    }
+    .lp-usecase-icon svg { width: 28px; height: 28px; }
+    .lp-usecase h3 { font-size: 1rem; font-weight: 700; margin-bottom: 6px; color: var(--dark); }
+    .lp-usecase p { font-size: 0.85rem; color: var(--text-light); }
+
+    /* ── FORMEN & FARBEN ── */
+    .lp-colors {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .lp-colors-text h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 16px;
+    }
+    .lp-colors-text p {
+      color: var(--text-light);
+      margin-bottom: 24px;
+      font-size: 1.05rem;
+    }
+    .lp-color-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+    .lp-color-dot {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 2px solid var(--gray-200);
+      transition: var(--transition);
+      cursor: default;
+    }
+    .lp-color-dot:hover { transform: scale(1.15); border-color: var(--red); }
+    .lp-forms-list { list-style: none; }
+    .lp-forms-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 0;
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+    .lp-forms-list svg { width: 18px; height: 18px; color: #22c55e; flex-shrink: 0; }
+    .lp-colors-visual {
+      background: var(--gray-50);
+      border-radius: 16px;
+      padding: 48px;
+      text-align: center;
+    }
+    .lp-colors-visual img {
+      max-width: 100%;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+    }
+
+    /* ── STATS ── */
+    .lp-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .lp-stat { text-align: center; }
+    .lp-stat-number { font-size: 2rem; font-weight: 800; color: var(--red); }
+    .lp-stat-label { font-size: 0.82rem; color: var(--text-light); font-weight: 500; }
+
+    /* ── CTA ── */
+    .lp-cta {
+      padding: 80px 0;
+      background: var(--red);
+      color: var(--white);
+      text-align: center;
+    }
+    .lp-cta h2 { font-size: 2.2rem; font-weight: 800; margin-bottom: 16px; }
+    .lp-cta p { font-size: 1.1rem; opacity: 0.9; margin-bottom: 32px; max-width: 550px; margin-left: auto; margin-right: auto; }
+    .lp-cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+    /* ── FOOTER ── */
+    .lp-footer {
+      padding: 32px 0;
+      background: var(--dark);
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      font-size: 0.82rem;
+    }
+    .lp-footer a { color: rgba(255,255,255,0.8); text-decoration: none; }
+    .lp-footer a:hover { color: var(--white); }
+    .lp-footer-inner { display: flex; align-items: center; justify-content: center; gap: 24px; flex-wrap: wrap; }
+    .lp-footer img { height: 24px; filter: brightness(0) invert(1); opacity: 0.7; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .lp-topbar {
+        padding: 12px 16px;
+        background: rgba(255,255,255,0.96);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
+      .lp-topbar img { height: 26px; }
+      .lp-topbar-links { gap: 10px; }
+      .lp-topbar-links a { font-size: 0.78rem; }
+      .btn-sm {
+        padding: 8px 18px;
+        font-size: 0.76rem;
+        border-radius: 50px;
+        font-weight: 600;
+        letter-spacing: 0.3px;
+      }
+
+      .lp-hero { min-height: 100vh; padding: 48px 0 40px; }
+      .lp-hero .container { grid-template-columns: 1fr; text-align: center; gap: 32px; }
+      .lp-hero-text h1 { font-size: 1.8rem; line-height: 1.2; }
+      .lp-hero-text p { font-size: 1rem; margin: 0 auto 24px; }
+      .lp-hero-buttons { justify-content: center; }
+      .lp-hero-badges { justify-content: center; gap: 16px; }
+      .lp-badge { font-size: 0.78rem; }
+      .lp-hero-visual { order: -1; }
+      .lp-hero-visual img { max-width: 320px; }
+
+      .lp-section { padding: 48px 0; }
+      .lp-section-header { margin-bottom: 32px; }
+      .lp-section-header h2 { font-size: 1.5rem; }
+      .lp-section-header p { font-size: 0.92rem; }
+      .lp-tag { font-size: 0.72rem; padding: 5px 12px; }
+
+      .lp-features { grid-template-columns: 1fr; gap: 12px; }
+      .lp-feature { padding: 20px 16px; }
+      .lp-feature-icon { width: 44px; height: 44px; border-radius: 10px; }
+      .lp-feature-icon svg { width: 22px; height: 22px; }
+      .lp-feature h3 { font-size: 0.92rem; }
+      .lp-feature p { font-size: 0.8rem; }
+
+      .lp-products { grid-template-columns: 1fr; gap: 16px; }
+      .lp-product-card { padding: 28px 20px; }
+      .lp-product-card h3 { font-size: 1.2rem; }
+      .lp-product-specs li { font-size: 0.85rem; }
+
+      .lp-options-grid { grid-template-columns: 1fr; gap: 12px; }
+      .lp-option { padding: 18px 16px; }
+      .lp-option h4 { font-size: 0.88rem; }
+      .lp-option p { font-size: 0.8rem; }
+
+      .lp-usecases { grid-template-columns: 1fr; gap: 12px; }
+      .lp-usecase { padding: 24px 16px; }
+      .lp-usecase-icon { width: 48px; height: 48px; }
+      .lp-usecase-icon svg { width: 22px; height: 22px; }
+      .lp-usecase h3 { font-size: 0.9rem; }
+      .lp-usecase p { font-size: 0.8rem; }
+
+      .lp-colors { grid-template-columns: 1fr; gap: 32px; }
+      .lp-colors-text h2 { font-size: 1.5rem; }
+      .lp-colors-text p { font-size: 0.95rem; }
+      .lp-colors-visual { padding: 24px; }
+      .lp-color-dot { width: 30px; height: 30px; }
+
+      .lp-stats { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+      .lp-stat-number { font-size: 1.5rem; }
+      .lp-stat-label { font-size: 0.75rem; }
+
+      .lp-cta { padding: 48px 0; }
+      .lp-cta h2 { font-size: 1.5rem; }
+      .lp-cta p { font-size: 0.95rem; }
+      .lp-cta-buttons .btn { padding: 12px 28px; font-size: 0.88rem; }
+
+      .lp-footer { padding: 24px 0; }
+      .lp-footer-inner { gap: 12px; }
+    }
+    @media (max-width: 480px) {
+      .lp-topbar-links a:not(.btn) { display: none; }
+      .lp-hero-text h1 { font-size: 1.5rem; }
+      .lp-hero-visual img { max-width: 260px; }
+
+      .lp-features { grid-template-columns: 1fr; }
+      .lp-usecases { grid-template-columns: 1fr; }
+      .lp-stats { grid-template-columns: 1fr; gap: 12px; }
+
+      .lp-cta-buttons { flex-direction: column; align-items: center; }
+      .lp-cta-buttons .btn { width: 100%; justify-content: center; }
+
+      .btn { padding: 12px 24px; font-size: 0.88rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOPBAR -->
+  <header class="lp-topbar">
+    <a href="../index.html"><img loading="lazy" decoding="async" src="../assets/img/miko-logo.svg" alt="miko® GmbH"></a>
+    <div class="lp-topbar-links">
+      <a href="https://www.miko-shop.com/Werbeartikel/Freizeit-Sport-Spiel/" target="_blank" rel="noopener">Zum Shop</a>
+      <a href="../index.html#kontakt" class="btn btn-red btn-sm">Jetzt anfragen</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="lp-hero">
+    <div class="container">
+      <div class="lp-hero-text">
+        <h1>Sitzkissen <span>mit Ihrem Logo</span></h1>
+        <p>Bedruckte Sitzkissen für Stadion, Messe und Event – in Ihrer Wunschfarbe, Wunschform und mit Ihrem Branding. Von der Standardproduktion bis zur komplett individuellen Sonderanfertigung.</p>
+        <div class="lp-hero-buttons">
+          <a href="../index.html#kontakt" class="btn btn-red">Jetzt anfragen</a>
+        </div>
+        <div class="lp-hero-badges">
+          <div class="lp-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+            Ab 216 Stück
+          </div>
+          <div class="lp-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+            13 Schaumfarben
+          </div>
+          <div class="lp-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+            Sonderformen möglich
+          </div>
+        </div>
+      </div>
+      <div class="lp-hero-visual">
+        <img loading="lazy" decoding="async" src="../assets/img/Bild-Ultimate-Sitzkissen-2.webp" alt="Individuelles Sitzkissen mit Logo-Druck">
+      </div>
+    </div>
+  </section>
+
+  <!-- VORTEILE -->
+  <section class="lp-section lp-section-gray">
+    <div class="container">
+      <div class="lp-section-header">
+        <span class="lp-tag">Warum miko® Sitzkissen?</span>
+        <h2>Ihre Vorteile auf einen Blick</h2>
+        <p>Bequem, werbewirksam und individuell – Sitzkissen, die auffallen und Komfort bieten.</p>
+      </div>
+      <div class="lp-features">
+        <div class="lp-feature">
+          <div class="lp-feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          </div>
+          <h3>Vollfarbdruck</h3>
+          <p>Fotorealistische Drucke im Siebdruck oder Sublimationsverfahren – bis zu 4-farbig.</p>
+        </div>
+        <div class="lp-feature">
+          <div class="lp-feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v6l3-3"/><path d="M12 8l-3-3"/><circle cx="12" cy="17" r="5"/></svg>
+          </div>
+          <h3>13 Schaumfarben</h3>
+          <p>Großes Farbsortiment für den Schaumkern – passend zu Ihrem Corporate Design.</p>
+        </div>
+        <div class="lp-feature">
+          <div class="lp-feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M12 18v-6"/><path d="M9 15h6"/></svg>
+          </div>
+          <h3>Kostenloser Entwurf</h3>
+          <p>Wir erstellen kostenlose, unverbindliche Designvorschläge – ganz nach Ihren Vorgaben.</p>
+        </div>
+        <div class="lp-feature">
+          <div class="lp-feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+          </div>
+          <h3>Sonderformen</h3>
+          <p>Rund, quadratisch, keilförmig oder komplett individuell – alles ist möglich.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ZWEI PRODUKTLINIEN -->
+  <section class="lp-section">
+    <div class="container">
+      <div class="lp-section-header">
+        <span class="lp-tag">Produktlinien</span>
+        <h2>Standard oder Event – Sie haben die Wahl</h2>
+        <p>Zwei Produktlinien für unterschiedliche Anforderungen – von der Großserie bis zur kleinen Eventauflage.</p>
+      </div>
+      <div class="lp-products">
+
+        <!-- STANDARD -->
+        <div class="lp-product-card featured">
+          <span class="lp-product-badge">Bestseller</span>
+          <h3>Standard-Sitzkissen</h3>
+          <p class="subtitle">Für große Auflagen & dauerhafte Werbung</p>
+          <ul class="lp-product-specs">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+              Ab 216 Stück bestellbar
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+              3 cm Schaumstoffdicke
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+              Siebdruck bis zu 3 Farben
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+              13 verschiedene Schaumfarben
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+              Verschiedene Standardformen
+            </li>
+          </ul>
+        </div>
+
+        <!-- EVENT -->
+        <div class="lp-product-card">
+          <h3>Event-Sitzkissen</h3>
+          <p class="subtitle">Für kleine Mengen & besondere Anlässe</p>
+          <ul class="lp-product-specs">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+              Auch kleine Mengen möglich
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+              Beidseitiger Druck
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+              Sublimationsdruck – fotorealistisch
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+              Komplett individuelle Sonderformen
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+              Ideal für Events & Promotions
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- VEREDELUNGSOPTIONEN -->
+  <section class="lp-section lp-section-gray">
+    <div class="container">
+      <div class="lp-section-header">
+        <span class="lp-tag">Veredelung</span>
+        <h2>Druckverfahren für jeden Anspruch</h2>
+        <p>Vom einfarbigen Siebdruck bis zum fotorealistischen Sublimationsdruck – wir finden die passende Lösung.</p>
+      </div>
+      <div class="lp-options-grid">
+        <div class="lp-option">
+          <div class="lp-option-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          </div>
+          <div>
+            <h4>Siebdruck</h4>
+            <p>Bis zu 3 Farben – langlebig, kräftig und ideal für große Auflagen.</p>
+          </div>
+        </div>
+        <div class="lp-option">
+          <div class="lp-option-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/></svg>
+          </div>
+          <div>
+            <h4>Sublimationsdruck</h4>
+            <p>Fotorealistischer Vollfarbdruck – perfekt für detailreiche Motive und Fotos.</p>
+          </div>
+        </div>
+        <div class="lp-option">
+          <div class="lp-option-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <div>
+            <h4>Beidseitiger Druck</h4>
+            <p>Vorder- und Rückseite individuell bedruckt – doppelte Werbefläche.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMEN & FARBEN -->
+  <section class="lp-section">
+    <div class="container">
+      <div class="lp-colors">
+        <div class="lp-colors-text">
+          <span class="lp-tag">Individualisierung</span>
+          <h2>Formen & Farben nach Wunsch</h2>
+          <p>Wählen Sie aus 13 Schaumfarben und verschiedenen Formen – oder lassen Sie eine komplett individuelle Form anfertigen.</p>
+          <div class="lp-color-grid">
+            <div class="lp-color-dot" style="background:#E3003A;" title="Rot"></div>
+            <div class="lp-color-dot" style="background:#1a3a6b;" title="Dunkelblau"></div>
+            <div class="lp-color-dot" style="background:#2563eb;" title="Blau"></div>
+            <div class="lp-color-dot" style="background:#16a34a;" title="Grün"></div>
+            <div class="lp-color-dot" style="background:#facc15;" title="Gelb"></div>
+            <div class="lp-color-dot" style="background:#f97316;" title="Orange"></div>
+            <div class="lp-color-dot" style="background:#7c3aed;" title="Lila"></div>
+            <div class="lp-color-dot" style="background:#ec4899;" title="Pink"></div>
+            <div class="lp-color-dot" style="background:#1a1a1a;" title="Schwarz"></div>
+            <div class="lp-color-dot" style="background:#ffffff;" title="Weiß"></div>
+            <div class="lp-color-dot" style="background:#9ca3af;" title="Grau"></div>
+            <div class="lp-color-dot" style="background:#92400e;" title="Braun"></div>
+            <div class="lp-color-dot" style="background:#06b6d4;" title="Türkis"></div>
+          </div>
+          <ul class="lp-forms-list">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+              Quadratisch (Standard)
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+              Rund
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+              Keilförmig (Stadionkissen)
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+              Komplett individuelle Sonderformen
+            </li>
+          </ul>
+        </div>
+        <div class="lp-colors-visual">
+          <img loading="lazy" decoding="async" src="../assets/img/Bild-Ultimate-Sitzkissen-2.webp" alt="Sitzkissen in verschiedenen Farben und Formen">
+          <div class="lp-stats" style="grid-template-columns: repeat(3, 1fr);">
+            <div class="lp-stat">
+              <div class="lp-stat-number">13</div>
+              <div class="lp-stat-label">Schaumfarben</div>
+            </div>
+            <div class="lp-stat">
+              <div class="lp-stat-number">4+</div>
+              <div class="lp-stat-label">Formen verfügbar</div>
+            </div>
+            <div class="lp-stat">
+              <div class="lp-stat-number">3 cm</div>
+              <div class="lp-stat-label">Schaumdicke</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EINSATZBEREICHE -->
+  <section class="lp-section lp-section-gray">
+    <div class="container">
+      <div class="lp-section-header">
+        <span class="lp-tag">Einsatzbereiche</span>
+        <h2>Überall bequem sitzen – mit Ihrer Marke</h2>
+        <p>Sitzkissen sind vielseitige Werbeträger, die immer wieder genutzt werden.</p>
+      </div>
+      <div class="lp-usecases">
+        <div class="lp-usecase">
+          <div class="lp-usecase-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-4h6v4"/></svg>
+          </div>
+          <h3>Stadion & Arena</h3>
+          <p>Bedruckte Stadionkissen für Sportvereine und Sponsoring-Aktionen.</p>
+        </div>
+        <div class="lp-usecase">
+          <div class="lp-usecase-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3>Messe & Kongress</h3>
+          <p>Komfortable Sitzgelegenheiten mit Ihrem Branding für Besucher und Gäste.</p>
+        </div>
+        <div class="lp-usecase">
+          <div class="lp-usecase-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 15l-3-3h6l-3 3z"/><circle cx="12" cy="12" r="10"/><path d="M8 9h8"/></svg>
+          </div>
+          <h3>Firmenevent</h3>
+          <p>Individuelle Sitzkissen für Sommerfeste, Teamevents und Firmenveranstaltungen.</p>
+        </div>
+        <div class="lp-usecase">
+          <div class="lp-usecase-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+          </div>
+          <h3>Promotion</h3>
+          <p>Give-away mit Mehrwert – Sitzkissen werden gerne mitgenommen und wiederverwendet.</p>
+        </div>
+        <div class="lp-usecase">
+          <div class="lp-usecase-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><path d="M4 22v-7"/></svg>
+          </div>
+          <h3>Sportverein</h3>
+          <p>Fanartikel und Sponsorengeschenke – mit Vereinswappen und Partnerlogos.</p>
+        </div>
+        <div class="lp-usecase">
+          <div class="lp-usecase-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+          <h3>Gastronomie</h3>
+          <p>Sitzkomfort mit Branding für Biergärten, Terrassen und Outdoor-Events.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ZAHLEN -->
+  <section class="lp-section">
+    <div class="container">
+      <div class="lp-section-header">
+        <span class="lp-tag">In Zahlen</span>
+        <h2>miko® Sitzkissen auf einen Blick</h2>
+      </div>
+      <div class="lp-stats">
+        <div class="lp-stat">
+          <div class="lp-stat-number">216</div>
+          <div class="lp-stat-label">Stück Mindestmenge (Standard)</div>
+        </div>
+        <div class="lp-stat">
+          <div class="lp-stat-number">13</div>
+          <div class="lp-stat-label">Schaumfarben verfügbar</div>
+        </div>
+        <div class="lp-stat">
+          <div class="lp-stat-number">3 cm</div>
+          <div class="lp-stat-label">Schaumstoffdicke</div>
+        </div>
+        <div class="lp-stat">
+          <div class="lp-stat-number">0 €</div>
+          <div class="lp-stat-label">Entwurf kostenlos</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="lp-cta">
+    <div class="container">
+      <h2>Bereit für Ihre eigenen Sitzkissen?</h2>
+      <p>Wir beraten Sie persönlich und erstellen einen kostenlosen Entwurf – passend zu Ihrem Event, Verein oder Unternehmen.</p>
+      <div class="lp-cta-buttons">
+        <a href="../index.html#kontakt" class="btn btn-white">Jetzt anfragen</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="lp-footer">
+    <div class="container">
+      <div class="lp-footer-inner">
+        <img loading="lazy" decoding="async" src="../assets/img/miko-logo.svg" alt="miko® GmbH">
+        <span>&copy; 2026 miko® GmbH</span>
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

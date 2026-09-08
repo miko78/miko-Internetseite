@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 60" width="140" height="60">
+  <rect x="5" y="5" width="50" height="50" rx="4" fill="#003D7A"/>
+  <text x="30" y="28" font-family="'Helvetica Neue', Arial, sans-serif" font-size="10" font-weight="700" text-anchor="middle" fill="#FFFFFF">BIELEFELDER</text>
+  <text x="30" y="42" font-family="'Helvetica Neue', Arial, sans-serif" font-size="22" font-weight="900" text-anchor="middle" fill="#FFFFFF">FHB</text>
+  <text x="65" y="28" font-family="'Helvetica Neue', Arial, sans-serif" font-size="8" font-weight="700" fill="#003D7A">ORIGINAL</text>
+  <text x="65" y="42" font-family="'Helvetica Neue', Arial, sans-serif" font-size="7" font-weight="400" fill="#003D7A">ZUNFT-</text>
+  <text x="65" y="51" font-family="'Helvetica Neue', Arial, sans-serif" font-size="7" font-weight="400" fill="#003D7A">KLEIDUNG</text>
+</svg>

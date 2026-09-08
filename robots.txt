@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /lib/
+Disallow: /data/
+
+Sitemap: https://www.miko-online.com/sitemap.xml

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 60" width="220" height="60">
+  <rect x="0" y="0" width="220" height="60" rx="3" fill="#FFD700"/>
+  <rect x="0" y="0" width="220" height="60" rx="3" fill="none" stroke="#E3003A" stroke-width="3"/>
+  <text x="110" y="34" font-family="'Helvetica Neue', Arial, sans-serif" font-size="22" font-weight="900" text-anchor="middle" letter-spacing="2" fill="#1a1a1a">BLÅKLÄDER</text>
+  <text x="110" y="50" font-family="'Helvetica Neue', Arial, sans-serif" font-size="9" font-weight="600" text-anchor="middle" letter-spacing="3" fill="#333">WORKWEAR</text>
+</svg>
