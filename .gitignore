@@ -26,3 +26,7 @@ _capstest.html
 # /htdocs/downloads/ und werden separat per SFTP gepflegt.
 # Zum Mitversionieren diese Zeile entfernen (ggf. mit Git LFS).
 downloads/
+
+# Generierte Dokumente (aus dem Artifact erzeugt)
+SEO-Fahrplan-miko-online.pdf
+*.pdf
