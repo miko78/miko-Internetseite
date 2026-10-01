@@ -234,6 +234,53 @@ a.btn-red:visited {
   background: var(--red-dark);
 }
 
+/* ── Shop-Paar in der Kopfzeile (Hakro-Shop + Webshop) ──
+   Ein gemeinsames <li>, damit beide als zusammengehoerige
+   Einstiege lesen statt als zwei zufaellige Buttons.        */
+.nav-links .nav-shops {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 14px;
+}
+.nav-links .nav-shops a.btn-red { margin-left: 0; }
+
+/* Sekundaer: gleiche Pillenform, nur als Umriss.
+   Im Ruhezustand zurueckhaltend, beim Hover gefuellt. */
+.nav-links a.btn-shop-ghost {
+  padding: 7px 18px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0;
+  white-space: nowrap;
+  color: var(--red);
+  background: transparent;
+  border: 1.5px solid rgba(227, 0, 58, 0.38);
+  border-radius: 50px;
+  transition: color 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+}
+.nav-links a.btn-shop-ghost:hover,
+.nav-links a.btn-shop-ghost:focus-visible {
+  color: var(--white);
+  background: var(--red);
+  border-color: var(--red);
+}
+.nav-links a.btn-shop-ghost:focus-visible {
+  outline: 2px solid var(--red);
+  outline-offset: 2px;
+}
+
+/* Zwischenbreiten: Navigation etwas enger schnueren,
+   damit das Shop-Paar bis zur Hamburger-Grenze passt. */
+@media (max-width: 1200px) {
+  .nav-links a { padding: 6px 10px; }
+  .nav-links .nav-shops { margin-left: 8px; gap: 6px; }
+  .nav-links a.btn-shop-ghost { padding: 7px 14px; font-size: 0.82rem; }
+  .nav-links .btn-red,
+  .nav-links a.btn-red { padding: 8px 16px; font-size: 0.82rem; }
+}
+
 /* Dropdown */
 .nav-dropdown {
   position: relative;
@@ -2403,6 +2450,33 @@ a.btn-red:visited {
     padding: 16px 24px;
     font-size: 1rem;
     border-radius: 50px;
+  }
+
+  /* Shop-Paar mobil: eine Reihe, zwei gleich breite Haelften.
+     Spart Hoehe im Menue und zeigt die Zusammengehoerigkeit. */
+  .nav-links .nav-shops {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 18px;
+    gap: 10px;
+  }
+  .nav-links .nav-shops a {
+    flex: 1 1 0;
+    min-width: 0;
+    margin-top: 0;
+    text-align: center;
+    border-bottom: none !important;
+  }
+  .nav-links .nav-shops a.btn-red {
+    width: auto;
+    margin-top: 0;
+    padding: 15px 12px;
+  }
+  .nav-links a.btn-shop-ghost {
+    display: block;
+    padding: 13.5px 12px;
+    font-size: 0.95rem;
+    border-width: 1.5px;
   }
 }
 
