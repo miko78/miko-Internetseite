@@ -248,15 +248,17 @@ a.btn-red:visited {
 /* Sekundaer: gleiche Pillenform, nur als Umriss.
    Im Ruhezustand zurueckhaltend, beim Hover gefuellt. */
 .nav-links a.btn-shop-ghost {
-  padding: 7px 18px;
+  /* Masse bewusst identisch zu .nav-links a.btn-red (8px/20px + 2px Rahmen),
+     damit beide Pillen exakt gleich hoch sind. Nicht auseinanderziehen. */
+  padding: 8px 20px;
   font-size: 0.85rem;
   font-weight: 500;
-  line-height: 1.4;
+  line-height: 1.7;
   letter-spacing: 0;
   white-space: nowrap;
   color: var(--red);
   background: transparent;
-  border: 1.5px solid rgba(227, 0, 58, 0.38);
+  border: 2px solid rgba(227, 0, 58, 0.32);
   border-radius: 50px;
   transition: color 0.25s ease, background 0.25s ease, border-color 0.25s ease;
 }
@@ -276,7 +278,7 @@ a.btn-red:visited {
 @media (max-width: 1200px) {
   .nav-links a { padding: 6px 10px; }
   .nav-links .nav-shops { margin-left: 8px; gap: 6px; }
-  .nav-links a.btn-shop-ghost { padding: 7px 14px; font-size: 0.82rem; }
+  .nav-links a.btn-shop-ghost { padding: 8px 16px; font-size: 0.82rem; }
   .nav-links .btn-red,
   .nav-links a.btn-red { padding: 8px 16px; font-size: 0.82rem; }
 }
@@ -2459,6 +2461,9 @@ a.btn-red:visited {
     margin-left: 0;
     margin-top: 18px;
     gap: 10px;
+    /* stretch statt center: der Umriss-Button nimmt exakt die Hoehe
+       des roten an, egal wie die Schriftmetrik ausfaellt. */
+    align-items: stretch;
   }
   .nav-links .nav-shops a {
     flex: 1 1 0;
@@ -2473,10 +2478,13 @@ a.btn-red:visited {
     padding: 15px 12px;
   }
   .nav-links a.btn-shop-ghost {
-    display: block;
-    padding: 13.5px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 12px;
     font-size: 0.95rem;
-    border-width: 1.5px;
+    line-height: 1.3;
+    border-width: 2px;
   }
 }
 
