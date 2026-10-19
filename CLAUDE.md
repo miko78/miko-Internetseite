@@ -4,7 +4,7 @@ Statische Website der miko® GmbH (Kottenheim, Eifel) – Full-Service-Anbieter 
 Werbeartikel, Merchandising, Corporate Fashion und Arbeitskleidung.
 
 **Live:** https://miko-online.com (ohne `www` – siehe Fallstricke)
-**Stand dieser Datei:** 16.10.2026
+**Stand dieser Datei:** 19.10.2026
 
 ---
 
@@ -73,10 +73,9 @@ statt 2.093 Bytes), `_archiv/`, `Logos Referenzen/`, `.DS_Store`, `CLAUDE.md`,
 Remote: `https://github.com/miko78/miko-Internetseite.git`, Branch `main`.
 Lesezugriff funktioniert ohne Passwortabfrage (Zugangsdaten hinterlegt).
 
-> **Offen:** 5 Commits liegen lokal vor `origin/main` (Stand 16.10.2026).
-> `git push origin main` wurde vom Berechtigungs-Classifier blockiert und muss
-> vom Nutzer ausgeführt werden – oder eine Regel `Bash(git push:*)` in
-> `/permissions` erlaubt es künftig.
+> **Push:** Am 16.10.2026 hat der Berechtigungs-Classifier `git push origin main`
+> blockiert. Am 19.10.2026 ging der Push auf ausdrückliche Bitte des Nutzers durch.
+> Nur pushen, wenn der Nutzer darum bittet.
 
 Bewusst **nicht** versioniert (`.gitignore`): `.env`, `config.smtp.php`, `data/*`,
 `_archiv/`, `Logos Referenzen/`, `_capstest.html`, `downloads/` (328 MB, ändert
