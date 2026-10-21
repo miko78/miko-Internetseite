@@ -216,6 +216,15 @@ plausible Annahmen, keine belegten Zahlen.
 
 ## Weitere offene Punkte
 
+**PHP2Shell (CVE-2026-109618/-109619), Stand 21.10.2026.** Der Server läuft mit
+PHP 8.3.6 (PHP-FPM, vermutlich Ubuntu 24.04). Ob der Hoster das korrigierte Paket
+`8.3.6-0ubuntu0.24.04.13` eingespielt hat, lässt sich von `/htdocs` aus nicht
+feststellen (`phpinfo` ist gesperrt). Notmaßnahme: `.user.ini` schaltet
+`session.upload_progress.enabled` ab (live geprüft, wirkt). Das ersetzt das Update
+nicht – Bestätigung vom Hoster steht aus. `.user.ini` gehört zum Upload, ist
+per Caddy von außen gesperrt (403). Zum Prüfen von PHP-Einstellungen ein
+Wegwerf-Skript mit Zufallsnamen hochladen, abrufen, sofort wieder löschen.
+
 **Kundenlogos im Document Root.** `/htdocs/Logos Referenzen/` (93 Dateien, 59 MB)
 ist öffentlich abrufbar – druckfähige Vektor-Originale fremder Marken, etwa
 `https://miko-online.com/Logos%20Referenzen/DEG Logo_Solo_HKS-Black_RZ.ai`.
