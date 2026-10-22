@@ -45,6 +45,24 @@ Praktikanten von März 2026 (Katalog-Update auf 2026).
 
 ---
 
+## Was NICHT auf den Server gehört
+
+Am 22.10.2026 lagen auf dem Live-Webspace **94 Kundenlogos in Druckformaten**
+(`Logos Referenzen/`, .ai/.eps/.pdf/hochauflösende JPG von DHL, Telekom,
+Aral und anderen) sowie die Testseite `_capstest.html` — öffentlich
+abrufbar. Nicht verlinkt und nicht in der Sitemap, aber der
+Verzeichnisname ist erratbar, und ein Verzeichnisschutz bestand nicht.
+Entfernt; die Vorlagen liegen weiterhin hier im Git.
+
+**Die Seite brauchte sie nie:** Die Referenzlogos zeigt sie aus
+`assets/img/referenzen/` (116 webp-Dateien). `Logos Referenzen/` ist das
+Archiv der gelieferten Originale und gehört nicht ins Web.
+
+`deploy.sh` arbeitet deshalb mit einer **Freigabeliste**, nicht mit einer
+Sperrliste: Hochgeladen wird nur, was dort ausdrücklich steht. Der erste
+Entwurf hatte eine Sperrliste mit „Logos" darin — das Verzeichnis heißt
+aber „Logos Referenzen", und genau diese Lücke hätte den Fehler wiederholt.
+
 ## Deployment
 
 Per SFTP auf den Webspace. Zugangsdaten stehen in `.env` im Projektwurzelverzeichnis
