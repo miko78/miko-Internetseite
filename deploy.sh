@@ -206,7 +206,11 @@ deploy_vorschau() {
 deploy_live() {
     echo "==> Live: $LIVE_URL (SFTP)"
     [ -f .env ] || { echo "FEHLER: .env mit den SFTP-Zugangsdaten fehlt" >&2; exit 1; }
-    local ordner; ordner=$(grep -oP '^Folder=\K.*' .env || echo '/htdocs')
+    # sed statt grep -oP: Das BSD-grep auf macOS kennt kein -P, und dieses
+    # Skript laeuft auf einem Mac. Mit leerem $ordner liefe der Upload ins
+    # Nichts — aufgefallen beim Trockenlauf.
+    local ordner; ordner=$(sed -n 's/^Folder=//p' .env | head -1)
+    [ -n "$ordner" ] || ordner='/htdocs'
 
     # Nur Geändertes übertragen: SFTP kennt keinen Abgleich wie rsync, und
     # 454 Dateien bei jedem Lauf hochzuladen dauert zu lange. Die Marke
@@ -255,9 +259,14 @@ deploy_live() {
     touch "$MARKE"
     echo "==> Rauchprobe"
     rauchprobe "$LIVE_URL" || {
-        echo "==> Hinweis: Läuft PHP für diese Domain beim Hoster überhaupt?" >&2
-        echo "    Am 22.10.2026 antwortete $LIVE_URL/contact.php mit 503" >&2
-        echo "    'PHP nicht verfügbar für diese Domain'." >&2
+        echo >&2
+        echo "==> Die Dateien sind übertragen — die Rauchprobe betrifft den" >&2
+        echo "    Zustand des Servers, nicht das Hochladen." >&2
+        echo "    Läuft PHP für diese Domain beim Hoster überhaupt? Am" >&2
+        echo "    22.10.2026 antwortete $LIVE_URL/contact.php mit 503" >&2
+        echo "    'PHP nicht verfügbar für diese Domain'. Solange das so" >&2
+        echo "    ist, zeigt die Seite den Ausweichhinweis mit Telefonnummer" >&2
+        echo "    und E-Mail-Adresse (siehe assets/js/main.js)." >&2
         exit 1
     }
 }
