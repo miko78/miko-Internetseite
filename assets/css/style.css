@@ -2842,3 +2842,50 @@ a.btn-red:visited {
   .ak-hero--home { min-height: 88vh !important; }
   .hero-logo-center { top: 30%; width: clamp(150px, 48vw, 280px); }
 }
+
+/* ==================== AUSWEICHHINWEIS KONTAKTFORMULAR ==================== */
+/* Erscheint nur per JavaScript, wenn contact.php nicht antwortet (siehe
+   assets/js/main.js). Bewusst kein Rot: Der Besucher hat nichts falsch
+   gemacht, und eine Fehlerfarbe schreckt ab. Ein ruhiger Hinweiston mit
+   gut sichtbaren Kontaktwegen führt eher zum Anruf. */
+.form-ausweich {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+  padding: 16px 18px;
+  border: 1px solid #f0d58c;
+  border-left: 4px solid #e0a800;
+  border-radius: 8px;
+  background: #fffaf0;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--text);
+}
+
+.form-ausweich strong {
+  font-weight: 700;
+}
+
+.form-ausweich-wege {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  margin-top: 4px;
+}
+
+.form-ausweich-wege a {
+  font-weight: 700;
+  color: var(--text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  /* Antippbar: Auf dem Telefon ist die Nummer der wahrscheinlichste Weg,
+     und 44px Höhe ist die übliche Mindestgröße für eine Schaltfläche. */
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.form-ausweich-wege a:hover {
+  color: var(--red);
+}

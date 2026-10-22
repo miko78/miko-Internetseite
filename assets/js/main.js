@@ -183,11 +183,67 @@
     var formToken = null;
     function fetchFormToken() {
       return fetch('contact.php?action=token', { method: 'GET', cache: 'no-store' })
-        .then(function(r) { return r.json(); })
-        .then(function(d) { if (d && d.token) { formToken = d.token; } })
-        .catch(function() { /* beim Absenden wird erneut versucht */ });
+        .then(function(r) {
+          if (!r.ok) { throw new Error('HTTP ' + r.status); }
+          return r.json();
+        })
+        .then(function(d) {
+          if (d && d.token) { formToken = d.token; return; }
+          throw new Error('kein Token in der Antwort');
+        });
     }
-    fetchFormToken();
+
+    // ── Ausweichhinweis, wenn das Formular nicht arbeiten kann ──
+    //
+    // Der Token-Abruf beim Laden ist zugleich die Probe, ob PHP auf diesem
+    // Server ueberhaupt laeuft. Am 22.10.2026 antwortete miko-online.com auf
+    // contact.php mit 503 "PHP nicht verfuegbar fuer diese Domain" —
+    // vermutlich eine Schutzmassnahme des Hosters wegen PHP2Shell. Wer das
+    // Formular ausfuellte, bekam erst nach dem Absenden einen Fehler.
+    //
+    // Statt den Fehler wie bisher stillschweigend zu verschlucken, steht der
+    // Hinweis jetzt VOR dem Formular: mit Telefonnummer und Adresse, damit
+    // niemand vor einer toten Maske sitzt. Er erscheint nur, wenn es
+    // wirklich klemmt, und verschwindet von selbst, sobald PHP wieder
+    // antwortet — es braucht also kein zweites Hochladen, wenn der Hoster
+    // es einschaltet.
+    function zeigeAusweichHinweis() {
+      if (document.getElementById('formularAusweich')) { return; }
+      var wrapper = form.parentNode;
+      var hinweis = document.createElement('div');
+      hinweis.id = 'formularAusweich';
+      hinweis.className = 'form-ausweich';
+      // role=status statt alert: Die Information ist wichtig, soll den
+      // Vorleser aber nicht mitten im Satz unterbrechen.
+      hinweis.setAttribute('role', 'status');
+      hinweis.innerHTML =
+        '<strong>Das Kontaktformular ist gerade nicht erreichbar.</strong>' +
+        '<span>Bitte erreichen Sie uns so lange direkt \u2014 wir melden uns ' +
+        'genauso schnell:</span>' +
+        '<span class="form-ausweich-wege">' +
+        '<a href="tel:+492651700235">+49 2651 700235</a>' +
+        '<a href="mailto:info@miko-online.com">info@miko-online.com</a>' +
+        '</span>';
+      wrapper.insertBefore(hinweis, form);
+    }
+
+    function entferneAusweichHinweis() {
+      var h = document.getElementById('formularAusweich');
+      if (h && h.parentNode) { h.parentNode.removeChild(h); }
+    }
+
+    // Einmal nachfassen, bevor der Hinweis erscheint: Ein einzelner
+    // fehlgeschlagener Abruf kann auch eine kurze Netzstoerung beim
+    // Besucher sein, und ein falscher Hinweis kostet Anfragen.
+    fetchFormToken()
+      .then(entferneAusweichHinweis)
+      .catch(function() {
+        setTimeout(function() {
+          fetchFormToken()
+            .then(entferneAusweichHinweis)
+            .catch(zeigeAusweichHinweis);
+        }, 1500);
+      });
 
     function showError(msg) {
       feedback.style.display = 'block';
@@ -203,10 +259,12 @@
         return;
       }
 
-      // Token fehlt (z. B. Abruf beim Laden fehlgeschlagen) -> einmal nachholen.
+      // Token fehlt (z. B. Abruf beim Laden fehlgeschlagen) -> einmal
+      // nachholen. Klappt auch das nicht, laeuft PHP nicht: dann den
+      // Ausweichhinweis zeigen statt den Besucher erneut senden zu lassen.
       if (!formToken) {
         showError('Sicherheitspr\u00fcfung wird vorbereitet \u2026 bitte senden Sie in einem Moment erneut.');
-        fetchFormToken();
+        fetchFormToken().catch(zeigeAusweichHinweis);
         return;
       }
 
@@ -231,18 +289,18 @@
           // Verbrauchtes Token entwerten und ein frisches holen
           // (Einmal-Token / Replay-Schutz).
           formToken = null;
-          fetchFormToken();
+          fetchFormToken().catch(function(){});
         } else {
           feedback.style.color = 'var(--red)';
           feedback.textContent = result.message;
           formToken = null;
-          fetchFormToken();
+          fetchFormToken().catch(function(){});
         }
       })
       .catch(function() {
         showError('Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut oder schreiben Sie uns direkt an info@miko-online.com.');
         formToken = null;
-        fetchFormToken();
+        fetchFormToken().catch(zeigeAusweichHinweis);
       })
       .finally(function() {
         submitBtn.disabled = false;
