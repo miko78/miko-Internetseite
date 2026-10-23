@@ -91,9 +91,9 @@ statt 2.093 Bytes), `_archiv/`, `Logos Referenzen/`, `.DS_Store`, `CLAUDE.md`,
 Remote: `https://github.com/miko78/miko-Internetseite.git`, Branch `main`.
 Lesezugriff funktioniert ohne Passwortabfrage (Zugangsdaten hinterlegt).
 
-> **Push:** Am 16.10.2026 hat der Berechtigungs-Classifier `git push origin main`
-> blockiert. Am 19.10.2026 ging der Push auf ausdrückliche Bitte des Nutzers durch.
-> Nur pushen, wenn der Nutzer darum bittet.
+> **Push:** Seit dem 23.10.2026 auf ausdrücklichen Wunsch des Nutzers: **jeden
+> Commit sofort nach GitHub pushen**, ohne Rückfrage. (Früher galt „nur auf Bitte“;
+> am 16.10.2026 hatte der Berechtigungs-Classifier einen Push blockiert.)
 
 Bewusst **nicht** versioniert (`.gitignore`): `.env`, `config.smtp.php`, `data/*`,
 `_archiv/`, `Logos Referenzen/`, `_capstest.html`, `downloads/` (328 MB, ändert
